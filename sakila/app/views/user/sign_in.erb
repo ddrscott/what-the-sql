@@ -1,0 +1,5 @@
+<%= form_for @user, url: sign_in_url, method: :post do |f| %>
+  <label>Who are you?</label> <br/>
+  <%= f.text_field :name %>  <br/>
+  <%= f.submit 'let me in' %>
+<% end %>
