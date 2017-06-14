@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Blazer::Engine, at: 'blazer'
+  mount Blazer::Engine, at: 'play'
 
   root 'user#sign_in'
 

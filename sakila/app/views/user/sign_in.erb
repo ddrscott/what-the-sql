@@ -1,5 +1,6 @@
 <div class="container text-center">
   <div class="jumbotron">
+    <h1>Query Island</h1>
     <h3>What's your name? <small></small></h3>
     <%= form_for @user, url: sign_in_url, method: :post do |f| %>
       <%= f.text_field :name, class:'form-control text-center', style: 'display: inline-block; margin: 1em; max-width: 30em', placeholder: 'Full name, handle or anything somewhat unique...' %>  <br/>
@@ -7,4 +8,13 @@
       <%= f.submit 'Sign in', class: 'btn btn-default btn-lg btn-primary'%>
     <% end %>
   </div>
+
+  <p>
+    This site allows SQL students to play with queries in a sand boxed environment.
+    The schema and data set is provided by <a href="http://dev.mysql.com/doc/sakila/en/" target="_new">Oracle's MySQL Sakila</a> example data.
+    The query editor, manager and charting is from the <a href="https://github.com/ankane/blazer" target="_new">Blazer Rubygem</a>.
+  </p>
+  <p>
+    This app is regularly reset. If you want the queries you've written, save them some where else :/. You can see all your queries by clicking "Mine" in the upper right of the home screen.
+  </p>
 </div>
