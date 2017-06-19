@@ -6,7 +6,13 @@ class ApplicationController < ActionController::Base
   before_action :ensure_user, except: %i(sign_in)
 
   def ensure_user
-    redirect_to(sign_in_path) and return false unless current_user
+    return true if current_user
+
+    session[:after_sign_in_uri] = request.headers['REQUEST_URI']
+    # IMPORTANT: must reference base application since this maybe called in the
+    # context of Blazer
+    redirect_to Rails.application.routes.url_helpers.sign_in_path
+    false
   end
 
   def current_user
