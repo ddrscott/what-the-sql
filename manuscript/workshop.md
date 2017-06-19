@@ -1,4 +1,8 @@
 # Workshop
+SQL (Structured Query Language) is an old language, but it's everywhere and it's
+not going away anytime soon. Feel free to search "Why Learn SQL?" and read until
+you're convinced.
+
 This workshop will walk students through the SQL language and how to interact
 with data in and out of traditional development environments. No prior knowledge
 of SQL is required, through it wouldn't hurt.
@@ -13,21 +17,6 @@ take the plunge into SQL.
 | Box      | 5     | 5      | 5      |
 | Building | 500   | 1000   | 500    |
 
-## Why Learn SQL?
-SQL (Structured Query Language) is an old language, but it's everywhere and it's
-not going away anytime soon. Feel free to search "Why Learn SQL?" and read until
-you're convinced.
-
-## Terms and Concepts
-
-- dataset :: 2 dimensional representation of data.
-
-- table :: a dataset persisted in the database usually with column definitions.
-
-- normalized data :: data which has been structured to reduce redundancy and
-  improve integrity.
-
-
 ## SQL Playground
 
 ### Connect to SQL Playground
@@ -39,21 +28,19 @@ Your data will be on the site until the next workshop so backup anything you'd
 like to save in your personal notes.
 
 
-### What the Sakila?!?
+### Sample Data
 
-The `sakila` schema was created MySQL and Oracle to represent an online DVD
-store. It contains normalized using best data organization practices.
-
-From the very first queries, you should notice many tables first columns are unique
-numbers. These are `primary keys` which are used to reference the row in another
-table. Data normalization principles and strategies are out of scope for this
-workshop, but can be read in depth at https://en.wikipedia.org/wiki/Database_normalization.
+The sample data we'll be querying is named `sakila`. The `sakila` schema was
+created MySQL and Oracle to represent an online DVD store. It contains many
+tables normalized using industry standard practices. Data normalization
+principles and strategies are out of scope for this workshop, but can be read in
+depth at https://en.wikipedia.org/wiki/Database_normalization.
 
 Due to the normalized nature of the Sakila schema, our initial queries will be
-quite bland. Once we get into using joins, our result sets will start to be more
-interesting. Please be patient.
+quite bland. Once we get into using joins, our results will interesting. Please
+be patient.
 
-<img src='sakila.svg' alt="sakila schema diagram" />
+<img src='http://database.guide/wp-content/uploads/2016/06/sakila_full_database_schema_diagram.png' alt="sakila schema diagram" />
 
 
 ## Anatomy of the `SELECT` Statement
@@ -63,9 +50,9 @@ interesting. Please be patient.
   <figcaption><a href="http://www.sqlite.org/lang_select.html">SELECT statement diagram provided by SQLite</a></figcaption>
 </figure>
 
-This map of possible keywords is menacing at first, but by the of this session
-you'll be able to use these terms to retrieve the data needed.
-
+Oh my googly eyes! This map of possible keywords is menacing at first, but by
+the of this session you'll be able to use these terms to compose interesting
+results.
 
 ### SELECT .. FROM
 
@@ -75,18 +62,36 @@ Let's jump right and build out the first query.
 2. Type the following text in the black box `SELECT * FROM country`.
 3. Select `Run` or use the keyboard shortcut `Ctrl-Enter` on Windows/Linux or `⌘-Enter` on OSX.
 
-The results of the query will display 
+The results of the query will display below query editor.
+
+**Exercises**
+1. List all actors.
+2. List all films.
+3. List all customers.
+
+What does the `*` [star] character mean? `star` tell the database to return all the
+columns of all the tables referenced in the `FROM` clause. `*` is great for
+quickly seeing some results, but we shouldn't leave it there in our final
+queries. It's best practise is to specify the exact columns desired from each
+referenced table. To target specific terms replace `*` with `table_name.column_name`.
+
+**Exercises**
+1. List only first and last name from the actor table.
+2. List only description from the film table.
+3. List only email from customer table.
+
+We just exercised the definition of `result-column` and the third option of the
+`expr` grammar. We'll get back to more `expr` later in the workshop.
 
 <figure>
-<img src="http://www.sqlite.org/images/syntax/result-column.gif" alt="result-column" />
-<figcaption><a href="http://www.sqlite.org/lang_select.html">Diagram of result-column</a></figcaption>
+  <img src="http://www.sqlite.org/images/syntax/result-column.gif" alt="result-column diagram" />
+  <figcaption><a href="http://www.sqlite.org/lang_select.html">Diagram of `result-column`</a></figcaption>
 </figure>
 
-1. List all actors.
-
-2. List all films.
-
-3. List all customers.
+<figure>
+  <img src="http://www.sqlite.org/images/syntax/expr.gif" alt="expr diagram" />
+  <figcaption><a href="http://www.sqlite.org/syntax/expr.html">Diagram of `expr`</a></figcaption>
+</figure>
 
 ### .. WHERE
 
