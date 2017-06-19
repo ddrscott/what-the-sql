@@ -1,3 +1,4 @@
+# Workshop
 This workshop will walk students through the SQL language and how to interact
 with data in and out of traditional development environments. No prior knowledge
 of SQL is required, through it wouldn't hurt.
@@ -12,9 +13,12 @@ take the plunge into SQL.
 | Box      | 5     | 5      | 5      |
 | Building | 500   | 1000   | 500    |
 
+## Why Learn SQL?
+SQL (Structured Query Language) is an old language, but it's everywhere and it's
+not going away anytime soon. Feel free to search "Why Learn SQL?" and read until
+you're convinced.
 
-Terms and Concepts
-==================
+## Terms and Concepts
 
 - dataset :: 2 dimensional representation of data.
 
@@ -24,10 +28,9 @@ Terms and Concepts
   improve integrity.
 
 
-SQL Playground
-========================
+## SQL Playground
 
-## Connect to SQL Playground
+### Connect to SQL Playground
 
 Open a browser to https://sakila.dataturd.com. It will prompt you for a name.
 Enter a somewhat unique name, otherwise you'll pick up someone else's session.
@@ -36,7 +39,7 @@ Your data will be on the site until the next workshop so backup anything you'd
 like to save in your personal notes.
 
 
-## What the Sakila?!?
+### What the Sakila?!?
 
 The `sakila` schema was created MySQL and Oracle to represent an online DVD
 store. It contains normalized using best data organization practices.
@@ -53,8 +56,7 @@ interesting. Please be patient.
 <img src='sakila.svg' alt="sakila schema diagram" />
 
 
-Anatomy of the `SELECT` Statement
-=================================
+## Anatomy of the `SELECT` Statement
 
 <figure>
   <img src="http://www.sqlite.org/images/syntax/select-stmt.gif" alt="SELECT Statement" />
@@ -65,7 +67,7 @@ This map of possible keywords is menacing at first, but by the of this session
 you'll be able to use these terms to retrieve the data needed.
 
 
-## SELECT .. FROM
+### SELECT .. FROM
 
 Let's jump right and build out the first query.
 
@@ -86,11 +88,11 @@ The results of the query will display
 
 3. List all customers.
 
-## .. WHERE
+### .. WHERE
 
 1. List G rated films.
 
-### .. LIKE
+#### .. LIKE
 
 1. List movies safe for teens (less than R)
 
@@ -98,11 +100,11 @@ The results of the query will display
 
 3. List addresses in the East Coast.
 
-## .. ORDER BY [ASC | DESC] [LIMIT ..]
+### .. ORDER BY [ASC | DESC] [LIMIT ..]
 
-## .. LIMIT
+### .. LIMIT
 
-## .. JOIN
+### .. JOIN
 
 This is how we relate from data from separate tables into a larger dataset.
 
@@ -112,37 +114,36 @@ This is how we relate from data from separate tables into a larger dataset.
 
 3. List customers with their postal code.
 
-### INNER JOIN (default)
+#### INNER JOIN (default)
 
-### LEFT JOIN
+#### LEFT JOIN
 
 1. List customers who don't have a rental.
 
 2. List films without inventory.
 
 
-### FULL OUTER JOIN
+#### FULL OUTER JOIN
 
 1. Which category doesn't have a film and which film doesn't have a category?
 
-## .. GROUP BY
+### .. GROUP BY
 
-### Aggregate Functions
+#### Aggregate Functions
 
-#### COUNT, SUM, AVG
+##### COUNT, SUM, AVG
 
 https://www.postgresql.org/docs/9.3/static/functions-aggregate.html
 
-### .. HAVING
+#### .. HAVING
 
-## .. UNION
+### .. UNION
 
-## SELECT (SELECT .. ) FROM
+### SELECT (SELECT .. ) FROM
 
 
 
-Functions
-=========
+## Functions
 
 Functions are used to format or transform columns into something more desirable.
 
@@ -151,37 +152,34 @@ Functions are used to format or transform columns into something more desirable.
 + Date Functions - https://www.postgresql.org/docs/9.3/static/functions-formatting.html
 + Misc - https://www.postgresql.org/docs/9.3/static/functions.html
 
-## repeat()
+### repeat()
 
 Making a bar graph
 
-## concat(), `||`
+### concat(), `||`
 
 Make a full name
 
 
 
-Changing Data
-=============
+## Changing Data
 
-## INSERT .. INTO
+### INSERT .. INTO
 
-## DELETE .. FROM
+### DELETE .. FROM
 
-## UPDATE .. SET
-
+### UPDATE .. SET
 
 
-Defining a Schema
-=================
+
+## Defining a Schema
 
 https://www.postgresql.org/docs/9.3/static/ddl.html
 
-## CREATE TABLE
+### CREATE TABLE
 
-## DROP TABLE
+### DROP TABLE
 
 
-Challenges
-==========
+## Challenges
 
