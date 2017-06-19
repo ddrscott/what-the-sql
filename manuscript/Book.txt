@@ -1,1 +1,2 @@
 intro.md
+workshop.md
