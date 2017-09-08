@@ -188,3 +188,71 @@ https://www.postgresql.org/docs/9.3/static/ddl.html
 
 ## Challenges
 
+
+## Misc Notes
+
+```sql
+CREATE TABLE interests AS
+  SELECT
+    column1::int     AS id,
+    column2::varchar AS name
+  FROM (
+    VALUES
+      (1, 'Coding'),
+      (2, 'Volleyball'),
+      (3, 'Data'),
+      (4, 'Teaching'),
+      (5, 'Cooking'),
+      (6, 'Ping Pong'),
+      (7, 'Piano'),
+      (8, 'Ramen'),
+      (9, 'Pokemon'),
+      (10, 'Potty jokes')
+  ) AS t;
+
+CREATE TABLE family_members AS
+  SELECT
+    column1::int AS id,
+    column2::varchar AS name
+  FROM (
+    VALUES
+      (1, 'Scott'),
+      (2, 'Karen'),
+      (3, 'Nathan'),
+      (4, 'Morgan')
+  ) AS t;
+
+DROP TABLE family_members_interests;
+CREATE TABLE family_members_interests AS
+  SELECT
+    column1::int AS member_id,
+    column2::int AS interest_id
+  FROM (
+    VALUES
+      (1, 1),
+      (1, 2),
+      (1, 3),
+      (1, 4),
+      (1, 6),
+      (1, 7),
+      (1, 8),
+      (2, 6),
+      (2, 7),
+      (2, 8),
+      (3, 8),
+      (3, 9),
+      (3, 10),
+      (4, 10)
+  ) AS t;
+
+SELECT
+    fm.name,
+    string_agg(i.name, ', ') AS interests
+FROM family_members fm
+JOIN family_members_interests fmi
+  ON fmi.member_id = fm.id
+JOIN interests i
+  ON i.id = fmi.interest_id
+GROUP BY fm.id, fm.name
+ORDER BY fm.id;
+```
